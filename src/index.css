@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-0;
+  }
+  body {
+    @apply bg-white text-black;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .container {
+    @apply px-4 md:px-6 max-w-7xl mx-auto;
+  }
+}
+
+@layer components {
+  .navbar {
+    @apply fixed top-0 left-0 right-0 bg-asWhite/90 backdrop-blur-sm border-b border-asGray-200 z-50;
+  }
+  
+  .nav-link {
+    @apply relative text-asDark hover:text-asBurgundy transition-colors 
+      after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] 
+      after:bg-asBurgundy after:scale-x-0 hover:after:scale-x-100 
+      after:transition-transform after:duration-300 after:origin-right 
+      hover:after:origin-left;
+  }
+  
+  .nav-link.active {
+    @apply text-asBurgundy after:scale-x-100;
+  }
+  
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight;
+  }
+  
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-semibold;
+  }
+  
+  .heading-md {
+    @apply text-2xl md:text-3xl font-semibold;
+  }
+  
+  .heading-sm {
+    @apply text-xl md:text-2xl font-medium;
+  }
+  
+  .heading-xs {
+    @apply text-lg md:text-xl font-medium;
+  }
+  
+  .project-card {
+    @apply relative overflow-hidden bg-asLight rounded-sm hover:shadow-lg transition-all duration-300;
+  }
+  
+  .project-image {
+    @apply w-full h-64 md:h-80 object-cover transition-transform duration-700;
+  }
+  
+  .project-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/90 to-black/70
+           flex flex-col justify-end p-4 md:p-6 z-10;
+  }
+  
+  .project-title {
+    @apply text-asWhite font-serif text-xl md:text-2xl font-bold mb-1 md:mb-2
+           transform translate-y-2 opacity-0 transition-all duration-300;
+  }
+  
+  .project-location {
+    @apply text-asWhite/90 text-sm md:text-base transform translate-y-2 opacity-0 transition-all duration-300;
+  }
+  
+  .project-card:hover .project-title,
+  .project-card:hover .project-location {
+    @apply translate-y-0 opacity-100;
+  }
+  
+  .project-card:hover .project-image {
+    @apply scale-105;
+  }
+  
+  .portfolio-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6;
+  }
+  
+  .carousel-container {
+    @apply relative w-full overflow-hidden;
+  }
+  
+  .carousel-track {
+    @apply flex transition-transform duration-500 ease-out;
+  }
+  
+  .carousel-slide {
+    @apply flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 px-2;
+  }
+  
+  .carousel-nav {
+    @apply flex items-center justify-center mt-4 md:mt-6 gap-2;
+  }
+  
+  .carousel-button {
+    @apply w-8 h-8 md:w-10 md:h-10 rounded-full bg-asBurgundy/20 hover:bg-asBurgundy/40
+           text-asWhite flex items-center justify-center transition-colors;
+  }
+  
+  .carousel-dots {
+    @apply flex gap-1 md:gap-2;
+  }
+  
+  .carousel-dot {
+    @apply w-2 h-2 md:w-3 md:h-3 rounded-full bg-asBurgundy/20 hover:bg-asBurgundy/40
+           transition-colors cursor-pointer;
+  }
+  
+  .carousel-dot.active {
+    @apply bg-asBurgundy;
+  }
+  
+  .button-primary {
+    @apply px-6 py-3 bg-asBurgundy text-asWhite rounded-sm hover:bg-asBurgundy/90 
+           transition-colors inline-block;
+  }
+  
+  .button-outline {
+    @apply px-6 py-3 border border-asDark text-asDark rounded-sm hover:bg-asDark 
+           hover:text-asWhite transition-colors inline-block;
+  }
+  
+  .contact-float {
+    @apply fixed bottom-8 right-8 bg-asWhite shadow-lg rounded-full p-3 z-50 
+           cursor-pointer hover:shadow-xl transition-shadow;
+  }
+  
+  .contact-popup {
+    @apply fixed bottom-24 right-8 bg-asWhite shadow-xl rounded-md p-4 w-64 
+           opacity-0 pointer-events-none translate-y-4 transition-all duration-300 z-50;
+  }
+  
+  .contact-popup.active {
+    @apply opacity-100 pointer-events-auto translate-y-0;
+  }
+  
+  .service-card {
+    @apply p-6 border border-asGray-200 rounded-sm hover:border-asBurgundy transition-colors;
+  }
+  
+  .service-icon {
+    @apply text-asBurgundy mb-4 text-3xl;
+  }
+  
+  .scroll-reveal {
+    @apply opacity-0;
+  }
+  
+  .scroll-reveal.active {
+    @apply animate-fade-in;
+  }
+  
+  .form-input {
+    @apply w-full p-3 bg-asLight border border-asGray-200 rounded-sm focus:outline-none 
+           focus:border-asBurgundy transition-colors;
+  }
+  
+  .form-textarea {
+    @apply w-full p-3 bg-asLight border border-asGray-200 rounded-sm min-h-32 
+           focus:outline-none focus:border-asBurgundy transition-colors;
+  }
+}
+
+@layer utilities {
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+  }
+  
+  .text-shadow-md {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+  }
+}
