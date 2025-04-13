@@ -34,7 +34,7 @@ const ContactPopup = () => {
         
         <div className="space-y-3">
           <a 
-            href="https://t.me/asinteriordesign" 
+            href="https://t.me/SVANA080" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="flex items-center space-x-2 p-3 bg-[#0088cc]/10 rounded-sm hover:bg-[#0088cc]/20 transition-colors"
