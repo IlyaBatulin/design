@@ -38,24 +38,24 @@ const PortfolioSection = () => {
   };
 
   return (
-    <section id="portfolio" className="py-16 bg-gray-50">
+    <section id="portfolio" className="py-8 md:py-16 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">Наши проекты</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 md:mb-4">Наши проекты</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto text-sm md:text-base px-4">
             Ознакомьтесь с нашими последними работами и вдохновитесь идеями для вашего интерьера
           </p>
         </div>
 
-        <div className="mb-8 flex justify-between items-center">
+        <div className="mb-6 md:mb-8 flex flex-col md:flex-row md:justify-between md:items-center gap-4">
           <FilterButtons
             selectedCategory={selectedCategory}
             onCategoryChange={setSelectedCategory}
           />
-          <div className="flex space-x-2">
+          <div className="flex space-x-2 justify-center md:justify-end">
             <button
               onClick={() => setViewMode('grid')}
-              className={`px-4 py-2 rounded-md ${
+              className={`px-4 py-2.5 rounded-md text-sm md:text-base min-w-[80px] ${
                 viewMode === 'grid'
                   ? 'bg-blue-600 text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
@@ -65,7 +65,7 @@ const PortfolioSection = () => {
             </button>
             <button
               onClick={() => setViewMode('carousel')}
-              className={`px-4 py-2 rounded-md ${
+              className={`px-4 py-2.5 rounded-md text-sm md:text-base min-w-[80px] ${
                 viewMode === 'carousel'
                   ? 'bg-blue-600 text-white'
                   : 'bg-gray-200 text-gray-700 hover:bg-gray-300'

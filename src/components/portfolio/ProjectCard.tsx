@@ -62,7 +62,7 @@ const ProjectCard = ({ project, onClick, index = 0 }: ProjectCardProps) => {
         <div className="aspect-w-16 aspect-h-9">
           {!imageLoaded && (
             <div className="absolute inset-0 bg-asDark flex items-center justify-center">
-              <div className="w-8 h-8 border-2 border-asWhite border-t-transparent rounded-full animate-spin"></div>
+              <div className="w-6 h-6 md:w-8 md:h-8 border-2 border-asWhite border-t-transparent rounded-full animate-spin"></div>
             </div>
           )}
           <img 
@@ -74,10 +74,10 @@ const ProjectCard = ({ project, onClick, index = 0 }: ProjectCardProps) => {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="absolute bottom-0 left-0 right-0 p-4">
-            <h3 className="text-white text-lg font-semibold mb-1">{project.title}</h3>
+          <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4">
+            <h3 className="text-white text-base md:text-lg font-semibold mb-1">{project.title}</h3>
             {project.location && (
-              <p className="text-white/80 text-sm">{project.location}</p>
+              <p className="text-white/80 text-xs md:text-sm">{project.location}</p>
             )}
           </div>
         </div>
