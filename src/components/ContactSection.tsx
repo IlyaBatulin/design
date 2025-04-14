@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
+import { sendToTelegram } from "@/services/telegram";
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,24 +17,35 @@ const ContactSection = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
-    // Здесь будет логика отправки формы
-    console.log("Form data:", formData);
-    
-    toast({
-      title: "Сообщение отправлено",
-      description: "Спасибо за обращение! Мы свяжемся с вами в ближайшее время.",
-    });
-    
-    // Очищаем форму
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      message: ""
-    });
+    try {
+      await sendToTelegram(formData);
+      
+      toast({
+        title: "Сообщение отправлено",
+        description: "Спасибо за обращение! Мы свяжемся с вами в ближайшее время.",
+      });
+      
+      // Очищаем форму
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: ""
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Ошибка отправки",
+        description: "Произошла ошибка при отправке сообщения. Пожалуйста, попробуйте позже.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -104,8 +117,12 @@ const ContactSection = () => {
                 ></textarea>
               </div>
               
-              <button type="submit" className="button-primary w-full">
-                Отправить сообщение
+              <button 
+                type="submit" 
+                className="button-primary w-full" 
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Отправка..." : "Отправить сообщение"}
               </button>
             </form>
           </div>
