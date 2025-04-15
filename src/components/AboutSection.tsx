@@ -17,15 +17,15 @@ const AboutSection = () => {
             </p>
             <div className="flex flex-wrap gap-4 mt-8">
               <div className="flex flex-col">
-                <span className="text-3xl font-bold text-asBurgundy">7+</span>
+                <span className="text-3xl font-bold text-asBurgundy">5+</span>
                 <span className="text-sm text-asGray-400">лет опыта</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-3xl font-bold text-asBurgundy">85+</span>
+                <span className="text-3xl font-bold text-asBurgundy">40+</span>
                 <span className="text-sm text-asGray-400">реализованных проектов</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-3xl font-bold text-asBurgundy">40+</span>
+                <span className="text-3xl font-bold text-asBurgundy">30+</span>
                 <span className="text-sm text-asGray-400">счастливых клиентов</span>
               </div>
             </div>
