@@ -12,6 +12,7 @@ const FilterButtons = ({ selectedCategory, onCategoryChange }: FilterButtonsProp
     { id: 'burgundy', label: 'ЖК Сердце Столицы' }
   ];
 
+  
   return (
     <div className="flex flex-wrap gap-2 justify-center md:justify-start">
       {categories.map((category) => (
